@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.onetomany" auto-import="false">
+<class name="Student" table="student_id">
+		<id name="student_id" column="iStudentID"><generator class="native" /></id>
+		
+		<set name="Phone" table="phone" cascade="all">
+			<key column="iPhoneID" />
+			<one-to-many class="com.onetomany.Phone" />
+		</set>
+		
+		<property name="student_name" type="string" column="sStudentName" />
+	
+	</class>
+	</hibernate-mapping>

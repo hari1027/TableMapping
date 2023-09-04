@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.onetoone" auto-import="false">
+
+<class name="Student" table="student">
+	<id name="student_id" column="iStudentID"> 		<generator class="native"/> 	</id>
+	
+		<one-to-one name="Address" class="com.onetoone.Address" cascade="all"></one-to-one>
+	
+	<property name="student_name" type="string" column="sStudentname" />
+	<property name="student_email" type="string" column="sStudentemail" />
+	<property name="student_mobilenum" type="long" column="sStudentmobilenum"/>
+	<property name="student_address" type="string" column="sStudentaddress" />
+</class>
+
+</hibernate-mapping>

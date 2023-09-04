@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.hibernate.crud.manytomany">
+
+<class name="Course" table="Course" >
+	<id name="course_id" column="iCourseID"> <generator class="native"/> 	</id>
+	
+	<set name="Student" table="student" inverse="true">
+		<key column="iCourseID" not-null="true"/>
+		<many-to-many class="com.manytomany.Student" column="iStudentID" />
+	</set>
+	
+	<property name="course_name" type="string" column="sCourseName" />
+	<property name="duration" type="integer" column="sDuration" />
+	<property name="fees" type="integer" column="sFees" />
+</class>
+
+</hibernate-mapping>
